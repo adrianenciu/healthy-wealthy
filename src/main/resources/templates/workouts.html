@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Workouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="../static/js/custom.js" th:src="@{/js/custom.js}"></script>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <link href="../static/css/custom.css" th:href="@{../css/custom.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        Eating Habbits <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/eating-diary/">Diary</a></li>
+                        <li><a href="/what-to-eat/">What to eat?</a></li>
+                    </ul>
+                </li>
+                <li role="presentation"><a href="/expenses/">Expenses</a></li>
+                <li role="presentation" class="active"><a href="/workouts/">Workouts</a></li>
+                <li role="presentation"><a href="/users/">Users</a></li>
+            </ul>
+        </nav>
+
+        <h3 class="text-muted">Hello, darlings!</h3>
+    </div>
+
+    <div class="jumbotron">
+        <table class="table">
+
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Expenses</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/custom.js" th:src="@{/js/custom.js}"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet" media="screen"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <link href="../static/css/custom.css" th:href="@{../css/custom.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        Eating Habbits <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/eating-diary/">Diary</a></li>
+                        <li><a href="/what-to-eat/">What to eat?</a></li>
+                    </ul>
+                </li>
+                <li role="presentation" class="active"><a href="/expenses/">Expenses</a></li>
+                <li role="presentation"><a href="/workouts/">Workouts</a></li>
+                <li role="presentation"><a href="/users/">Users</a></li>
+            </ul>
+        </nav>
+
+        <h3 class="text-muted">Hello, darlings!</h3>
+    </div>
+
+    <h3>Add new expense</h3>
+    <form class="form-horizontal" style="margin-bottom: 30px" method="post"><!--th:object="${expense}"  th:action="@{/expenses/}" action="#"-->
+        <div class="form-group">
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="expenseType" placeholder="Type (e.g. Transport, Groceries)"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-5">
+                <input type="number" step="0.01" class="form-control" id="expenseAmount" placeholder="Amount (e.g. 20.50)"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-5">
+                <div class="input-group date datetimepicker">
+                    <input type="text" class="form-control" id="expenseDate" placeholder="31/01/2078"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Log Expense</button>
+    </form>
+
+    <div class="col-sm-4 pull-right">
+        <div class="form-group">
+            <div class="input-group date datetimepicker">
+                <input type="text" class="form-control"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>#</th>
+        </tr>
+
+        <tr th:each="expense : ${expenses}">
+            <td th:text="${expense.type}"></td>
+            <td th:text="${expense.amount}"></td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
